@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Program Studi Pendidikan Matematika Unpari</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Cambria, serif;
+        }
+
+        body {
+            background-color: #f8f8ff;
+            color: #333;
+        }
+
+        header {
+            background-color: #b19cd9;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 60px;
+            margin-right: 15px;
+        }
+
+        .logo h1 {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        nav {
+            margin-top: 10px;
+            width: 100%;
+            text-align: right;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #b19cd9;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 10;
+        }
+
+        .submenu a {
+            display: block;
+            color: #fff;
+            margin: 5px 0;
+        }
+
+        nav ul li:hover .submenu {
+            display: block;
+        }
+
+        #hero {
+            background-image: url('background unpari.jpeg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 150px 0;
+            text-align: center;
+        }
+
+        .hero-container {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 50px;
+        }
+
+        #courses {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .course {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .course img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .course h4 {
+            margin-bottom: 10px;
+        }
+
+        .course a {
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #b19cd9;
+            font-weight: bold;
+        }
+
+        #testimonials {
+            padding: 50px 20px;
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        .testimonial {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        footer {
+            background-color: #b19cd9;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        .contact-info p {
+            margin-top: 10px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function closeAllModals() {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+
+        function openModal(modalId) {
+            closeAllModals();
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="LOGO_UNPARI.png" alt="Logo Universitas PGRI Silampari">
+            </a>
+            <h1>Universitas PGRI Silampari</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" target="_blank ">HOME</a></li>
+                <li><a href="#" onclick="openModal('programUnggulanModal'); return false;">PROGRAM UNGGULAN</a></li>
+                <li>
+                    <a href="#" target="_blank ">KEGIATAN</a>
+                    <div class="submenu">
+                        <a href="#" onclick="openModal('kegiatanPromosiProdiModal'); return false;">Promosi Prodi</a>
+                        <a href="#" onclick="openModal('kegiatanHimaProdiModal'); return false;">HIMA Prodi</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" target="_blank ">PRESTASI</a>
+                    <div class="submenu">
+                        <a href="#" onclick="openModal('prestasiMahasiswaModal'); return false;">Mahasiswa</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" target="_blank ">TENTANG PRODI</a>
+                    <div class="submenu">
+                        <a href="#" onclick="openModal('kurikulumModal'); return false;">Kurikulum</a>
+                        <a href="#" onclick="openModal('ruangKelasModal'); return false;">Ruang Kelas</a>
+                        <a href="#" onclick="openModal('beasiswaModal'); return false;">Informasi Beasiswa</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-container">
+            <h2>Selamat Datang di Universitas PGRI Silampari</h2>
+            <p>Menjadi Universitas Unggul dan Terpercaya di Indonesia</p>
+        </div>
+    </section>
+
+    <section id="courses" class="container">
+        <h3>Explore Our Programs</h3>
+        <div class="course-grid">
+            <div class="course">
+                <img src="program unggulan.jpeg" alt="Program Unggulan">
+                <h4>Program Unggulan</h4>
+                <p>Program unggulan prodi matematika meliputi:</p>
+                <a href="#" onclick="openModal('programUnggulanModal'); return false;">Lihat Selengkapnya</a>
+            </div>
+            <div class="course">
+                <img src="KEGIATAN HIMA.jpeg" alt="Kegiatan Promosi Prodi">
+                <h4>Kegiatan Promosi Prodi</h4>
+                <p>Kegiatan untuk memperkenalkan program studi.</p>
+                <a href="#" onclick="openModal('kegiatanPromosiProdiModal'); return false;">Lihat Selengkapnya</a>
+            </div>
+            <div class="course">
+                <img src="INFORMASI BEASISWA.jpg" alt="Kegiatan HIMA Prodi">
+                <h4>Informasi Beasiswa</h4>
+                <p>Untuk memaparkan tentang beasiswa.</p>
+                <a href="#" onclick="openModal('kegiatanHimaProdiModal'); return false;">Lihat Selengkapnya</a>
+            </div>
+            <div class="course">
+                <img src="prestasi mahasiswa.jpeg" alt="Kegiatan HIMA Prodi">
+                <h4>Prestasi Mahasiswa</h4>
+                <p>Kegiatan untuk memaparkan prestasi mahasiswa.</p>
+                <a href="#" onclick="openModal('kegiatanHimaProdiModal'); return false;">Lihat Selengkapnya</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h3>Apa Kata Mereka?</h3>
+        <div class="testimonial">
+            <p>"Prodi Pendidikan Matematika memberikan pengalaman belajar yang sangat memuaskan. Fasilitasnya lengkap
+                dan dosennya profesional!" - <em>Mahasiswa</em></p>
+        </div>
+        <div class="testimonial">
+            <p>"Saya bangga menjadi bagian dari program studi ini. Program-programnya sangat membantu pengembangan karir
+                saya!" - <em>Alumni</em></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Universitas PGRI Silampari. All rights reserved.</p>
+        <div class="contact-info">
+            <p>Email: info@pgri-silampari.ac.id</p>
+            <p>Phone Kaprodi: +62 852-6656-8078 (Dr. Idul Adha, M.Pd)</p>
+            <p>Phone Operator:</p>
+        </div>
+    </footer>
+
+    <!-- Modal untuk Program Unggulan -->
+    <div id="programUnggulanModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('programUnggulanModal');">&times;</span>
+            <h3>Program Unggulan</h3>
+            <p>Prodi pendidikan matematika menawarkan program unggulan yang dirancang untuk mempersiapkan mahasiswa
+                menjadi profesional di bidang pendidikan.</p>
+            <ul>
+                <li><strong>KIP-K</strong> Salah satu program unggulan dari program studi pendidikan matematika adalah
+                    dengan menyediakan/membantu mahasiswa yang kurang mampu tetapi ingin tetap melanjutkan perkuliahan,
+                    hal ini terbukti banyaknya mahasiswa yang mendapatkan KIP-K dengan ini prodi pendidikan matematika
+                    berhasil membantu banyaknya mahasiswa untuk tetap melanjutkan perkuliahan.</li>
+                <li><strong>STADY TOUR:</strong> Salah satu dari program uggulan yang dimiliki prodi pendidikan
+                    matematika iyalah dengan mengadakan Stady tour keluar kota bersama para dosen, hal ii dilakukan guna
+                    membuat mahasiswa dapat mengeksplor banyaknya ilmu-ilmu dari kampus pendidikan di kampus lain. Di
+                    kegiatan ini mahasiswa buakn hanya mempelajari ilmu-ilmu yang ada di kampus lain tetapi mahasiswa
+                    juga akan dibawa untuk melihat objek wisata yang berada di kota tempat mereka berada.
+                </li>
+                <img src="12345.jpeg" alt="12345" style="width: 100%; height: auto; margin-bottom: 15px;">
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal untuk Kegiatan Promosi Prodi -->
+    <div id="kegiatanPromosiProdiModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('kegiatanPromosiProdiModal');">&times;</span>
+            <h3>Kegiatan Promosi Program Studi</h3>
+            <p>Berikut adalah beberapa kegiatan promosi program studi yang telah dilakukan:</p>
+            <ul>
+                <li><strong>Inagurasi:</strong> kegiatan ini di selenggarakan setelah Ospek, rangkaian kegiatan yang
+                    dilakukan berupa memperkenalkan apa itu program pendidikan matematiak dengan serangkaian acara
+                    seperti memperkenalkan pengurus HIMA staf/dosen-dosen yang ada di program studi pendidikan
+                    matematika.</li> <img src="Inagurasi.jpeg" alt="Inagurasi"
+                    style="width: 50%; height: auto; margin-bottom: 10px;">
+                <li><strong>Matrikulasi</strong> hampir sama dengan inagurasi, matrikulasi ini juga mengadaka rangkaian
+                    kegiatan yang bermanfaat dengan memperkenalkan prodidan juga di berikan penyampaian materi dari
+                    pemateri terbaik.
+                </li> <img src="Matrikulasi.jpeg" alt="Matrikulasi"
+                    style="width: 50%; height: auto; margin-bottom: 10px;">
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal untuk Kegiatan HIMA Prodi -->
+    <div id="kegiatanHimaProdiModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('kegiatanHimaProdiModal');">&times;</span>
+            <h3>Kegiatan HIMA Program Studi</h3>
+            <p>Berikut adalah beberapa kegiatan HIMA program studi:</p>
+            <ul>
+                <li><strong>Bukber bersama Prodi:</strong> Kegiatan ini di lakukan setiap bulan Ramadhan guna
+                    mempererat tali silahturahmi antara mahasiswa dan juga dosen-dosen yang ada
+                    di prodi pemdidikan matematika.
+                </li> <img src="bukber bersama.jpeg" alt="bukber bersama"
+                    style="width: 50%; height: auto; margin-bottom: 10px;">
+
+                <li><strong>Seminar:</strong> Seminar adalah program yang di lakukan HIMA untuk menyampaikan
+                    materi-materi yang bermanfaat bagi mahasiswa prodi matematika, seminar ini memiliki pemateri dari
+                    mahasiswa atas yang akan melaksanakan ujian skripsi nantinya.</li> <img src="seminar.jpeg"
+                    alt="seminar" style="width: 50%; height: auto; margin-bottom: 10px;">
+
+                <li><strong>Futsal Prodi:</strong> Kegiatan ni dilakukan agar mahasiswa prodi bukan hanya pintar dalam
+                    bidang akademik tetapi juga sehat secara jasmani, kegiatan ini di dukung oleh Kaprodi dan juga para
+                    dosen juga ikut serta dalam melaksanakan kegiatan yang sangat bermanfaat ini. biasanya kegiatan ini
+                    biasanya sering dilakukan di malam hari atau juga di sore hari.</li> <img src="futsal prodi.jpeg"
+                    alt="futsal prodi" style="width: 50%; height: auto; margin-bottom: 10px;">
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal untuk Prestasi Mahasiswa -->
+    <div id="prestasiMahasiswaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('prestasiMahasiswaModal');">&times;</span>
+            <h3>Contoh Prestasi Mahasiswa</h3>
+            <p> BERIKUT ADALAH DOKUMENTASI DARI PRESSTASI MAHASISWA BAIK KAMPUS MENGAJAR MAUPUN PMM:</p>
+            <ul>
+                <li><strong> FOTO</strong> - Link: <a href="" target="_blank">Link Drive</a></li>
+                <li><strong>VIDIO</strong> - Link: <a href="https://youtu.be/2zYjzY_zQQA?si=ER0cBg4zOMfyTLfm.Youtube"
+                        target="_blank">Link Youtube</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal untuk Kurikulum -->
+    <div id="kurikulumModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('kurikulumModal');">&times;</span>
+            <h3>Kurikulum</h3>
+            <p>Kurikulum di prodi pendidikan matematia dirancang untuk memenuhi kebutuhan pendidikan yang berkualitas.
+                Berikut adalah contoh mata kuliah:</p>
+            <ul>
+                <li><strong>Pengantar Dasar Matematika</strong> - 3 SKS</li>
+                <li><strong>Ke-PGRIan</strong> - 3 SKS</li>
+                <li><strong>Kalkulus Integral</strong> - 3 SKS</li>
+                <li><strong>Teori Bilangan</strong> - 3 SKS</li>
+                <li><strong>Matemtika Ekonomi</strong> - 3 SKS</li>
+                <li><strong>Telaah Kurikulum dan buku Teks Matematika </strong> - 3 SKS</li>
+            </ul>
+            <p>Kurikulum ini disusun agar mahasiswa siap menghadapi tantangan di dunia pendidikan ataupun mateatika itu
+                sendiri.</p>
+        </div>
+    </div>
+
+    <!-- Modal untuk Ruang Kelas -->
+    <div id="ruangKelasModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ruangKelasModal');">&times;</span>
+            <h3>Ruang Kelas</h3>
+            <p>Ruang kelas di Prodi pendidikan matematika dilengkapi dengan fasilitas modern untuk mendukung proses
+                belajar mengajar. Beberapa fasilitas yang tersedia:</p>
+            <ul>
+                <li>AC untuk kenyamanan mahasiswa</li>
+                <li>Proyektor dan layar untuk presentasi</li>
+                <li>Koneksi internet yang cepat</li>
+                <li>Terdapat juga kipas anngin</li>
+            </ul>
+            <img src="RUANGAN 25.jpeg" alt="RUANGAN 25" style="width: 50%; height: auto; margin-bottom: 10px;">
+            <img src="RUANGAN 26.jpeg" alt="RUANGAN 26" style="width: 50%; height: auto; margin-bottom: 10px;">
+            <img src="RUANGAN 27.jpeg" alt="RUANGAN 27" style="width: 50%; height: auto; margin-bottom: 10px;">
+            <img src="RUANGAN 28.jpeg" alt="RUANGAN 28" style="width: 50%; height: auto; margin-bottom: 10px;">
+            <p>Kami berkomitmen untuk memberikan lingkungan belajar yang optimal bagi mahasiswa.</p>
+        </div>
+    </div>
+
+    <!-- Modal untuk Beasiswa -->
+    <div id="beasiswaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('beasiswaModal');">&times;</span>
+            <h3>Informasi Beasiswa</h3>
+            <p>Program studi pendidikan matematika menawarkan berbagai jenis beasiswa untuk mendukung mahasiswa yang
+                berprestasi. Beasiswa yang tersedia meliputi:</p>
+            <ul>
+                <li><strong>Beasiswa Akademik:</strong> Untuk mahasiswa dengan IPK tinggi.</li>
+                <li><strong>Beasiswa Honorer:</strong> Untuk mahasiswa yang yang orang tuanya berprofesi sebagai guru.
+                </li>
+                <li><strong>Beasiswa Keluarga Tidak Mampu:</strong> Untuk mahasiswa dari keluarga kurang mampu atau bisa
+                    disebut kip.</li>
+            </ul>
+            <p>Untuk informasi lebih lanjut, silakan kunjungi website resmi kami.</p>
+        </div>
+    </div>
+</body>
+
+</html>

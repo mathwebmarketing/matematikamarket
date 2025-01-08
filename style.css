@@ -1,0 +1,194 @@
+<style>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cambria, serif;
+}
+
+body {
+  background-color: #f8f8ff;
+  color: #333;
+}
+
+header {
+  background-color: #b19cd9;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 60px;
+  margin-right: 15px;
+}
+
+.logo h1 {
+  color: #fff;
+  font-size: 24px;
+}
+
+nav {
+  margin-top: 10px;
+  width: 100%;
+  text-align: right;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul li {
+  position: relative;
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #b19cd9;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.submenu a {
+  display: block;
+  color: #fff;
+  margin: 5px 0;
+}
+
+nav ul li:hover .submenu {
+  display: block;
+}
+
+#hero {
+  background-image: url('background unpari.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 150px 0;
+  text-align: center;
+}
+
+.hero-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 50px;
+}
+
+#courses {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.course {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.course h4 {
+  margin-bottom: 10px;
+}
+
+.course a {
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #b19cd9;
+  font-weight: bold;
+}
+
+#testimonials {
+  padding: 50px 20px;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.testimonial {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+footer {
+  background-color: #b19cd9;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  margin-top: 50px;
+}
+
+.contact-info p {
+  margin-top: 10px;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 8px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+</style>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    /* CSS - Gaya Halaman */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #007bff, #6a11cb);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 350px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 10px;
+      color: #007bff;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      text-align: left;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #error-message {
+      margin-top: 10px;
+      color: red;
+      font-size: 14px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <form id="login-form">
+      <h2>Welcome!</h2>
+      <p>Please log in to continue</p>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+      <button type="submit">Login</button>
+      <p id="error-message" class="hidden">Invalid username or password!</p>
+    </form>
+  </div>
+
+  <script>
+    // JavaScript - Logika Halaman
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Data login
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      // Validasi login
+      if (username === "tamu" && password === "mahasiswa") {
+        alert("Login berhasil! Anda akan diarahkan ke beranda.");
+
+        // Redirect ke halaman beranda
+        window.location.href = "menu.html"; // Ganti dengan URL halaman beranda Anda
+      } else {
+        // Tampilkan pesan error
+        const errorMessage = document.getElementById("error-message");
+        errorMessage.classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
+
+</html>
